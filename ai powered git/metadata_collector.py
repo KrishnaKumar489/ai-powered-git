@@ -1,37 +1,3 @@
-"""
-main.py
--------
-Entry point for the Git Repository Metadata Exporter.
-
-Produces THREE branch-aware JSON output files:
-
-    repo_structure_<ts>.json
-        File system snapshot per branch:
-        files, directories, folder tree, sizes, blob hashes, extensions.
-
-    git_actions_<ts>.json
-        All git activity per branch:
-        commits (typed), merges, file events, per-file history,
-        tags, branch stats, stashes, hooks, gitignore rules.
-
-    code_metadata_<ts>.json
-        Code-level symbols per branch (requires tree-sitter):
-        functions (name, lines, docstring, decorators),
-        classes (name, bases, methods, lines),
-        imports, call graph, file dependency graph.
-
-Usage:
-    python main.py [repo_path] [-o OUTPUT_DIR] [--base BRANCH] [--local-only]
-                   [--skip-code]
-
-Examples:
-    python main.py
-    python main.py /path/to/repo
-    python main.py /path/to/repo -o ./reports
-    python main.py /path/to/repo --base develop --local-only
-    python main.py /path/to/repo --skip-code        # skip tree-sitter extraction
-"""
-
 import subprocess
 import json
 import argparse
