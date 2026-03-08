@@ -193,7 +193,7 @@ def _index_is_fresh(index_path: Path, repo_path: str,
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="run.py",
+        prog="main.py",
         description="AI-powered git repo query — single entry point.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
