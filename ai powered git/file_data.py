@@ -1,13 +1,3 @@
-"""
-file_metadata.py
-----------------
-Collects file system snapshot metadata from a git repository — branch-aware.
-Reads git objects directly. No checkout needed.
-
-Exported:
-    structure_for_branch(repo_path, branch_info) -> dict
-"""
-
 import subprocess
 from pathlib import Path
 from collections import defaultdict
@@ -152,3 +142,4 @@ def structure_for_branch(repo_path: str, branch_info: dict) -> dict:
         "folders":           folders,
         "files":             files,
     }
+
