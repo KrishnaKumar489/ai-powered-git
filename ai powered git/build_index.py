@@ -1,75 +1,3 @@
-"""
-build_index.py
---------------
-Merges the four JSON outputs from main.py into a single unified index
-that the AI layer can query directly.
-
-Input files (auto-detected from a directory by their name prefix):
-    repo_structure_<ts>.json
-    git_actions_<ts>.json
-    code_metadata_<ts>.json
-    ukg_<ts>.json
-
-Output:
-    index_<ts>.json
-
-Index shape (branch-centric):
-─────────────────────────────────────────────────────────────
-{
-  "repository": { ...repo-level meta... },
-
-  "branches": {
-    "<branch_name>": {
-
-      "meta": {
-        tip_commit, is_remote, created_date, created_by,
-        total_files, total_size_bytes, extension_summary[],
-        stats{}, commit_type_breakdown{}, merged_branches[],
-        tags[], gitignore_patterns[], ukg_stats{}
-      },
-
-      "files": {
-        "<filepath>": {
-          "info":    { filename, directory, extension, size_bytes, blob_hash },
-          "code":    { functions[], classes[], imports[], calls[] },
-          "history": { total_commits, first_seen, last_modified,
-                       unique_authors[], commits[] }
-        }
-      },
-
-      "git": {
-        "commits":      [ ...all commits... ],
-        "merges":       [ ...all merges...  ],
-        "file_actions": [ ...all file-level events... ]
-      },
-
-      "graph": {
-        "call_graph":        { "func_id": ["callee_id", ...] },
-        "dependency_graph":  { "filepath": ["dep_path", ...] },
-        "ukg":               { ...node dict... }
-      }
-    }
-  },
-
-  "lookup": {
-    "file_to_branches":     { "<filepath>": ["branch", ...] },
-    "function_to_branches": { "<func_id>":  ["branch", ...] },
-    "class_to_branches":    { "<class_name>": ["branch", ...] },
-    "author_to_commits":    { "<email>": [{"branch","hash","date","subject"}, ...] },
-    "commit_to_branch":     { "<hash>": "branch" }
-  }
-}
-─────────────────────────────────────────────────────────────
-
-Usage:
-    python build_index.py -i ./reports -o ./reports
-    python build_index.py -i ./reports            # output same dir as input
-    python build_index.py --structure repo_structure_20250101_120000.json
-                          --actions  git_actions_20250101_120000.json
-                          --code     code_metadata_20250101_120000.json
-                          --ukg      ukg_20250101_120000.json
-                          -o ./reports
-"""
 
 import json
 import argparse
@@ -479,4 +407,5 @@ Explicit file paths:
 
 
 if __name__ == "__main__":
+
     main()
