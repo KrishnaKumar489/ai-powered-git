@@ -6,12 +6,23 @@ Follow the steps below to run the project:
 
 2. **Clone this repository** as well.
 
-3. **Run the following command for the first time** to collect repository data and query it:
+3. **Configure AWS Credentials**
+This project uses AWS Bedrock, so you must configure AWS credentials.
+Run:
+aws configure
+Enter the following when prompted:
+AWS Access Key ID: <your-access-key>
+AWS Secret Access Key: <your-secret-key>
+Default region name: us-east-1
+Default output format: json
+
+4. **Run the following command for the first time** to collect repository data and query it:
 
 ```bash
 python main.py --repo ./your-repo -q "your query here"
 ```
-4. For subsequent queries on the same repository, skip the data collection step using:
+
+5. For subsequent queries on the same repository, skip the data collection step using:
 
 ```bash
 python main.py --repo ./your-repo --skip-collect -q "your query here"
