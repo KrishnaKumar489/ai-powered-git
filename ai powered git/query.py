@@ -1,16 +1,3 @@
-"""
-query_agent.py  —  Agentic Query Engine (replaces query.py)
-============================================================
-
-Instead of hardcoded intent patterns, gives Bedrock a set of tools
-and lets it decide what to fetch. Bedrock calls tools in a loop
-until it has enough information to answer.
-
-Usage:
-    python query_agent.py -i ./reports -q "what does login do"
-    python query_agent.py -i ./reports  # REPL
-"""
-
 import json
 import re
 import subprocess
@@ -796,3 +783,4 @@ def main():
 
 # if __name__ == "__main__":
 #     main()
+
