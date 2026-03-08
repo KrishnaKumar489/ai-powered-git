@@ -1,27 +1,3 @@
-"""
-git_action_metadata.py
-----------------------
-Collects all git actions and activity for a repository — branch-aware.
-Reads git objects directly. No checkout needed.
-
-Covers:
-    commits         — full log with conventional-commit type classification
-    merges          — merge commits with source/target parents
-    file_actions    — add / delete / rename / copy / modify events per commit
-    file_history    — per-file commit log (follows renames)
-    tags            — tags reachable from branch
-    branch_stats    — ahead/behind base, contributor count, date range
-    merged_branches — branches already merged into this one
-    gitignore       — parsed .gitignore rules from the branch tree
-    stashes         — repo-level stash list (shared across branches)
-    hooks           — git hooks present in .git/hooks
-
-Exported:
-    actions_for_branch(repo_path, branch_info, base_branch) -> dict
-    get_stashes(repo_path)                                   -> list
-    get_hooks(repo_path)                                     -> list
-"""
-
 import subprocess
 from pathlib import Path
 from collections import defaultdict
@@ -482,3 +458,4 @@ def actions_for_branch(
         "tags":                 tags,
         "file_commit_history":  file_history,
     }
+
