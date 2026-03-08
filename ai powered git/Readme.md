@@ -25,7 +25,7 @@ Default output format: json
 python main.py --repo ./your-repo -q "your query here"
 ```
 
-##IMPORTANT
+## IMPORTANT
 The current ai powered git system only works for 5 programming languages: python, java, javascript, html, css. SInce its an MVP we have decided to start with 5 programming languages.
 5. For subsequent queries on the same repository, skip the data collection step using:
 
