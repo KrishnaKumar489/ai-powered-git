@@ -29,7 +29,5 @@ python main.py --repo ./your-repo -q "your query here"
 ```bash
 python main.py --repo ./your-repo --skip-collect -q "compare main and develop"
 ```
-
-
 ## IMPORTANT
-The current ai powered git system only works for 5 programming languages: python, java, javascript, html, css. SInce its an MVP we have decided to start with 5 
+The current ai powered git system only works for 5 programming languages: python, java, javascript, html, css. Since its an MVP we have decided to start with 5 programming languages.
