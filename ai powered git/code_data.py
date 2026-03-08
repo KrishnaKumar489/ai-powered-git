@@ -1,22 +1,3 @@
-"""
-code_metadata.py
-----------------
-Extracts code-level symbols from a git branch using tree-sitter.
-Branch-aware: reads blobs directly from git objects — no checkout needed.
-
-Supports: .py  .js  .java  .html  .css
-
-Extracted per file:
-    functions   — name, line range, decorators, docstring (Python)
-    classes     — name, line range, methods, base classes (Python/Java)
-    imports     — raw import statements
-    calls       — outbound function call names
-    call_graph  — directed edges  caller_id → callee_id
-    dependency_graph — file-level import edges
-
-Exported:
-    code_metadata_for_branch(repo_path, branch_info) -> dict"""
-
 import os
 import re
 import subprocess
@@ -853,3 +834,4 @@ def code_metadata_for_branch(repo_path: str, branch_info: dict) -> dict:
         "ukg":              ukg_dict,
         "files":            file_records,
     }
+
